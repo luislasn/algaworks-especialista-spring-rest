@@ -9,10 +9,6 @@ import com.algaworks.algafood.di.modelo.Cliente;
 @TipoDoNotificador(NivelUrgencia.SEM_URGENCIA)
 @Component
 public class NotificadorEmailMock implements Notificador {
-	
-	public NotificadorEmailMock() {
-		System.out.println("NotificadorEmail MOCK");
-	}
 
 	@Override
 	public void notificar(Cliente cliente, String mensagem) {		
