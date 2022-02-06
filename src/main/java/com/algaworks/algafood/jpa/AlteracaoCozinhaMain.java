@@ -4,7 +4,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import com.algaworks.algafood.domain.model.Cozinha;
-
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import com.algaworks.algafood.AlgafoodApiApplication;
 
 public class AlteracaoCozinhaMain {
@@ -14,13 +14,13 @@ public class AlteracaoCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
 		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 		cozinha.setNome("Brasileira");
 		
-		cadastroCozinha.salvar(cozinha);		
+		cozinhaRepository.adicionar(cozinha);		
 	}
 
 }
