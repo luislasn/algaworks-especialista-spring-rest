@@ -16,7 +16,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cozinha {
+public class Estado {
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -26,7 +26,7 @@ public class Cozinha {
 	@Column(nullable = false)
 	private String nome;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "cozinha")
-    private List<Restaurante> restaurantes;
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "estado")
+    private List<Cidade> cidades;
 	
 }
