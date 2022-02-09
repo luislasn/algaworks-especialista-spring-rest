@@ -1,14 +1,14 @@
 package com.algaworks.algafood.domain.model;
 
-import java.util.List;
+//import java.util.List;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+//import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,7 +26,7 @@ public class Cozinha {
 	@Column(nullable = false)
 	private String nome;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "cozinha")
-    private List<Restaurante> restaurantes;
+//	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "cozinha")
+//    private List<Restaurante> restaurantes;
 	
 }
