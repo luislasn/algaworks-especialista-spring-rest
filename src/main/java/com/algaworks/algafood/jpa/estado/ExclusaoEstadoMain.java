@@ -20,7 +20,7 @@ public class ExclusaoEstadoMain {
 		Estado estado = new Estado();
 		estado.setId(1L);
 		
-		estadoRepository.remover(estado);		
+		estadoRepository.remover(estado.getId());		
 	}
 
 }
