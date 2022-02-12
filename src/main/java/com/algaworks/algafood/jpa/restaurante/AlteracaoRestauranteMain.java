@@ -20,7 +20,7 @@ public class AlteracaoRestauranteMain {
 		restaurante.setId(1L);
 		restaurante.setNome("MaoTai");
 		
-		restauranteRepository.salvar(restaurante);		
+		restauranteRepository.save(restaurante);		
 	}
 
 }
