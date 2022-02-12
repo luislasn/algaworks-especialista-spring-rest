@@ -21,7 +21,7 @@ public class AlteracaoEstadoMain {
 		estado.setId(1L);
 		estado.setNome("Salvador");
 		
-		estadoRepository.salvar(estado);		
+		estadoRepository.save(estado);		
 	}
 
 }

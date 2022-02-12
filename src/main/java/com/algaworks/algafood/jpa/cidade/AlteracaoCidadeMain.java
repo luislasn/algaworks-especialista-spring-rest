@@ -25,7 +25,7 @@ public class AlteracaoCidadeMain {
 		estado.setId(1L);
 		cidade.setEstado(estado);
 		
-		cidadeRepository.salvar(cidade);		
+		cidadeRepository.save(cidade);		
 	}
 
 }

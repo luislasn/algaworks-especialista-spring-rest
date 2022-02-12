@@ -23,8 +23,8 @@ public class InclusaoEstadoMain {
 		Estado estado2 = new Estado();
 		estado2.setNome("Paraíba");
 		
-		estado1 = estadoRepository.salvar(estado1);
-		estado2 = estadoRepository.salvar(estado2);
+		estado1 = estadoRepository.save(estado1);
+		estado2 = estadoRepository.save(estado2);
 		
 		System.out.printf("%d - %s\n", estado1.getId(), estado1.getNome());
 		System.out.printf("%d - %s\n", estado2.getId(), estado2.getNome());
