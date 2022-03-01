@@ -73,8 +73,7 @@ public class RestauranteController {
 			return cadastroRestaurante.salvar(restauranteAtual);	
 		} catch (CozinhaNaoEncontradaException e) {
 			throw new NegocioException(e.getMessage());
-		}
-			
+		}			
 	}
 	
 	@PatchMapping("/{restauranteId}")
