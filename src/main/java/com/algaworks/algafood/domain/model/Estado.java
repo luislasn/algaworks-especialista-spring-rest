@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 //import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-import com.algaworks.algafood.Groups;
+import com.algaworks.algafood.core.validation.Groups;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
