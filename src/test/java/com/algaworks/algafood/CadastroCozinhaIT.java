@@ -48,11 +48,11 @@ public class CadastroCozinhaIT {
 		RestAssured.port = port;
 		RestAssured.basePath = "/cozinhas";
 		
-		databaseCleaner.clearTables();
-		prepararDados();
-		
 		jsonCorretoCozinhaChinesa = ResourceUtils.getContentFromResource(
 				"/json/correto/cozinha-chinesa.json");
+		
+		databaseCleaner.clearTables();
+		prepararDados();
 	}
 
 	@Test
