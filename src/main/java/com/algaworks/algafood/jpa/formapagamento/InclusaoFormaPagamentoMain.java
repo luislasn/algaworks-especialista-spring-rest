@@ -22,8 +22,8 @@ public class InclusaoFormaPagamentoMain {
 		FormaPagamento formaPagamento2 = new FormaPagamento();
 		formaPagamento2.setDescricao("Vale");
 		
-		formaPagamento1 = formaPagamentoRepository.salvar(formaPagamento1);
-		formaPagamento2 = formaPagamentoRepository.salvar(formaPagamento2);
+		formaPagamento1 = formaPagamentoRepository.save(formaPagamento1);
+		formaPagamento2 = formaPagamentoRepository.save(formaPagamento2);
 		
 		System.out.printf("%d - %s\n", formaPagamento1.getId(), formaPagamento1.getDescricao());
 		System.out.printf("%d - %s\n", formaPagamento2.getId(), formaPagamento2.getDescricao());
