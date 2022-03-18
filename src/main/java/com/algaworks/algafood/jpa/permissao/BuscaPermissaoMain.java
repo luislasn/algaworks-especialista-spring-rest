@@ -3,9 +3,11 @@ package com.algaworks.algafood.jpa.permissao;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
+
+import com.algaworks.algafood.AlgafoodApiApplication;
+import com.algaworks.algafood.domain.exception.PermissaoNaoEncontradoException;
 import com.algaworks.algafood.domain.model.Permissao;
 import com.algaworks.algafood.domain.repository.PermissaoRepository;
-import com.algaworks.algafood.AlgafoodApiApplication;
 
 public class BuscaPermissaoMain {
 	
@@ -16,7 +18,8 @@ public class BuscaPermissaoMain {
 		
 		PermissaoRepository permissaoRepository = applicationContext.getBean(PermissaoRepository.class);
 		
-		Permissao permissao = permissaoRepository.buscar(1L);
+		Permissao permissao = permissaoRepository.findById(1L)
+				.orElseThrow(() -> new PermissaoNaoEncontradoException(1L));
 		
 		System.out.println(permissao.getDescricao());
 	}

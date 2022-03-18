@@ -21,7 +21,7 @@ public class AlteracaoPermissaoMain {
 		permissao.setNome("EXCLUIR_RESTAURANTE");
 		permissao.setDescricao("Permite excluir restaurantes");
 		
-		permissaoRepository.salvar(permissao);		
+		permissaoRepository.save(permissao);		
 	}
 
 }
