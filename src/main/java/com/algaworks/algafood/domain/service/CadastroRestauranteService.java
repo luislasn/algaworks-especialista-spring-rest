@@ -1,5 +1,7 @@
 package com.algaworks.algafood.domain.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,10 +33,10 @@ public class CadastroRestauranteService {
 	private CadastroUsuarioService cadastroUsuario;
 	
 	@Transactional
-	public Restaurante salvar(Restaurante restaurante) { 		
+	public Restaurante salvar(Restaurante restaurante) {
 		Long cozinhaId = restaurante.getCozinha().getId();
 		Long cidadeId = restaurante.getEndereco().getCidade().getId();
-		
+
 		Cozinha cozinha = cadastroCozinha.buscarOuFalhar(cozinhaId);
 		Cidade cidade = cadastroCidade.buscarOuFalhar(cidadeId);
 		
@@ -56,6 +58,16 @@ public class CadastroRestauranteService {
 		Restaurante restauranteAtual = buscarOuFalhar(restauranteId);
 		
 		restauranteAtual.inativar();
+	}
+	
+	@Transactional
+	public void ativar(List<Long> restauranteIds) {
+		restauranteIds.forEach(this::ativar);
+	}
+	
+	@Transactional
+	public void inativar(List<Long> restauranteIds) {
+		restauranteIds.forEach(this::inativar);
 	}
 	
 	@Transactional
@@ -86,7 +98,7 @@ public class CadastroRestauranteService {
 		FormaPagamento formaPagamento = cadastroFormaPagamento.buscarOuFalhar(formaPagamentoId);
 		
 		restaurante.adicionarFormaPagamento(formaPagamento);
-	}	
+	}
 	
 	@Transactional
 	public void desassociarResponsavel(Long restauranteId, Long usuarioId) {
@@ -106,7 +118,7 @@ public class CadastroRestauranteService {
 	
 	public Restaurante buscarOuFalhar(Long restauranteId) {
 		return restauranteRepository.findById(restauranteId)
-					.orElseThrow(() -> new RestauranteNaoEncontradoException(restauranteId));
+			.orElseThrow(() -> new RestauranteNaoEncontradoException(restauranteId));
 	}
 	
 }

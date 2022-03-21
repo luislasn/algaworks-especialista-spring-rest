@@ -18,23 +18,23 @@ import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.service.CadastroRestauranteService;
 
 @RestController
-@RequestMapping("/restaurantes/{restauranteId}/responsaveis")
+@RequestMapping(value = "/restaurantes/{restauranteId}/responsaveis")
 public class RestauranteUsuarioResponsavelController {
 
-	@Autowired
-	private CadastroRestauranteService cadastroRestaurante;
-	
-	@Autowired
-	private UsuarioModelAssembler usuarioModelAssembler;
-
-	@GetMapping
+    @Autowired
+    private CadastroRestauranteService cadastroRestaurante;
+    
+    @Autowired
+    private UsuarioModelAssembler usuarioModelAssembler;
+    
+    @GetMapping
     public List<UsuarioModel> listar(@PathVariable Long restauranteId) {
         Restaurante restaurante = cadastroRestaurante.buscarOuFalhar(restauranteId);
         
         return usuarioModelAssembler.toCollectionModel(restaurante.getResponsaveis());
     }
-
-	@DeleteMapping("/{usuarioId}")
+    
+    @DeleteMapping("/{usuarioId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void desassociar(@PathVariable Long restauranteId, @PathVariable Long usuarioId) {
         cadastroRestaurante.desassociarResponsavel(restauranteId, usuarioId);
@@ -45,5 +45,4 @@ public class RestauranteUsuarioResponsavelController {
     public void associar(@PathVariable Long restauranteId, @PathVariable Long usuarioId) {
         cadastroRestaurante.associarResponsavel(restauranteId, usuarioId);
     }
-
 }
