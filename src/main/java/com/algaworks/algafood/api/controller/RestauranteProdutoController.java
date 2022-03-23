@@ -31,19 +31,19 @@ public class RestauranteProdutoController {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
-
+	
 	@Autowired
 	private CadastroProdutoService cadastroProduto;
 	
 	@Autowired
-    private CadastroRestauranteService cadastroRestaurante;
-
+	private CadastroRestauranteService cadastroRestaurante;
+	
 	@Autowired
 	private ProdutoModelAssembler produtoModelAssembler;
 	
 	@Autowired
 	private ProdutoInputDisassembler produtoInputDisassembler;
-
+	
 	@GetMapping
 	public List<ProdutoModel> listar(@PathVariable Long restauranteId) {
 		Restaurante restaurante = cadastroRestaurante.buscarOuFalhar(restauranteId);
@@ -52,17 +52,17 @@ public class RestauranteProdutoController {
 		
 		return produtoModelAssembler.toCollectionModel(todosProdutos);
 	}
-
+	
 	@GetMapping("/{produtoId}")
 	public ProdutoModel buscar(@PathVariable Long restauranteId, @PathVariable Long produtoId) {
 		Produto produto = cadastroProduto.buscarOuFalhar(restauranteId, produtoId);
 		
 		return produtoModelAssembler.toModel(produto);
-	}	
-
+	}
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ProdutoModel adicionar(@PathVariable Long restauranteId, 
+	public ProdutoModel adicionar(@PathVariable Long restauranteId,
 			@RequestBody @Valid ProdutoInput produtoInput) {
 		Restaurante restaurante = cadastroRestaurante.buscarOuFalhar(restauranteId);
 		
@@ -70,20 +70,20 @@ public class RestauranteProdutoController {
 		produto.setRestaurante(restaurante);
 		
 		produto = cadastroProduto.salvar(produto);
-			
+		
 		return produtoModelAssembler.toModel(produto);
 	}
-
+	
 	@PutMapping("/{produtoId}")
 	public ProdutoModel atualizar(@PathVariable Long restauranteId, @PathVariable Long produtoId,
-			@RequestBody @Valid ProdutoInput produtoInput) {		
-		Produto produtoAtual = cadastroProduto.buscarOuFalhar(restauranteId, produtoId);	
+			@RequestBody @Valid ProdutoInput produtoInput) {
+		Produto produtoAtual = cadastroProduto.buscarOuFalhar(restauranteId, produtoId);
 		
 		produtoInputDisassembler.copyToDomainObject(produtoInput, produtoAtual);
 		
 		produtoAtual = cadastroProduto.salvar(produtoAtual);
-			
+		
 		return produtoModelAssembler.toModel(produtoAtual);
 	}
-
+	
 }
