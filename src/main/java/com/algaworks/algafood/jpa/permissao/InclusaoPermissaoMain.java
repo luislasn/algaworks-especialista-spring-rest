@@ -24,8 +24,8 @@ public class InclusaoPermissaoMain {
 		permissao2.setNome("EDITAR_RESTAURANTES");
 		permissao2.setDescricao("Permite editar restaurantes");
 		
-		permissao1 = permissaoRepository.salvar(permissao1);
-		permissao2 = permissaoRepository.salvar(permissao2);
+		permissao1 = permissaoRepository.save(permissao1);
+		permissao2 = permissaoRepository.save(permissao2);
 		
 		System.out.printf("%d - %s\n", permissao1.getId(), permissao1.getDescricao(), permissao1.getDescricao());
 		System.out.printf("%d - %s\n", permissao2.getId(), permissao2.getDescricao(), permissao2.getDescricao());

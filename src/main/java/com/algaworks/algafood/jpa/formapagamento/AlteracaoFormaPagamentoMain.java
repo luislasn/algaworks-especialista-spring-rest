@@ -20,7 +20,7 @@ public class AlteracaoFormaPagamentoMain {
 		formaPagamento.setId(1L);
 		formaPagamento.setDescricao("Cheque");
 		
-		formaPagamentoRepository.salvar(formaPagamento);		
+		formaPagamentoRepository.save(formaPagamento);		
 	}
 
 }
