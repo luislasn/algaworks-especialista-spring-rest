@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonFilter;
 import lombok.Getter;
 import lombok.Setter;
 
-//@JsonFilter("pedidoFilter")
 @Setter
 @Getter
 public class PedidoResumoModel {
@@ -20,6 +19,7 @@ public class PedidoResumoModel {
     private String status;
     private OffsetDateTime dataCriacao;
     private RestauranteResumoModel restaurante;
-    private UsuarioModel cliente;
+//    private UsuarioModel cliente;
+    private String nomeCliente;
 	
 }
