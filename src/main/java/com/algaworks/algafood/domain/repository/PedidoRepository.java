@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import com.algaworks.algafood.domain.filter.VendaDiariaFilter;
 import com.algaworks.algafood.domain.model.Pedido;
+import com.algaworks.algafood.domain.model.dto.VendaDiaria;
 
 public interface PedidoRepository extends CustomJpaRepository<Pedido, Long>,
 		JpaSpecificationExecutor<Pedido>{
